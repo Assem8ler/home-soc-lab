@@ -1,0 +1,15 @@
+<group name="windows,firewall,">
+  <rule id="100001" level="3">
+    <if_sid>18105</if_sid>
+    <id>5152</id>
+    <description>Windows Filtering Platform has blocked a packet (scan probe).</description>
+  </rule>
+
+  <rule id="100002" level="8" frequency="10" timeframe="120">
+    <if_matched_sid>100001</if_matched_sid>
+    <description>Possible port scan detected: multiple WFP packet blocks in a short window.</description>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+  </rule>
+</group>
